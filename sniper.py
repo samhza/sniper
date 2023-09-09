@@ -94,7 +94,7 @@ async def update_opened(s, td):
             'campus': td['campus']
         }
         r = await s.get(f"{SOC_API_URL}/openSections.json", params=params)
-        j = await r.json()
+        j = set(await r.json())
         if open_sections == None:
             open_sections = j
             continue
